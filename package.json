@@ -1,33 +1,38 @@
 {
-  "name": "breeze-next",
+  "name": "nivaecotech",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "^1.4.2",
-    "axios": "^0.21.1",
-    "next": "^14.2.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "swr": "^1.3.0"
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.16",
+    "@mui/material": "^5.15.16",
+    "axios": "^1.7.2",
+    "bootstrap": "^5.3.3",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.1.7",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "sharp": "^0.33.3",
+    "swr": "^2.2.5",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.12.1",
-    "@babel/preset-react": "^7.18.6",
-    "@next/eslint-plugin-next": "^14.2.3",
-    "@tailwindcss/forms": "^0.5.2",
-    "autoprefixer": "^10.4.2",
-    "eslint": "^8.27.0",
-    "eslint-config-next": "^14.0.3",
-    "eslint-config-prettier": "^7.2.0",
-    "postcss": "^8.4.6",
-    "prettier": "^3.2.5",
-    "tailwindcss": "^3.4.3"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5"
   }
 }
