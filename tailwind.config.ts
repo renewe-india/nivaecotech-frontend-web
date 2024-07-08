@@ -1,7 +1,9 @@
+import { green } from "@mui/material/colors";
 import type { Config } from "tailwindcss";
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
+const colors = require('tailwindcss/colors');
 
 const config: Config = {
   content: [
@@ -12,6 +14,19 @@ const config: Config = {
   darkMode: "class",
   theme: {
     extend: {
+      colors: {
+        theme1: {
+          light: "#2e7134", 
+          dark: "#193d1c", 
+        },
+        theme2: {
+          light: "#bf7034", 
+          dark: "#8c5226", 
+        },
+        textPrimary: "#FF4917", 
+        textSecondary: "#ffa247", 
+        
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -39,7 +54,7 @@ function addVariablesForColors({ addBase, theme }: any) {
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
- 
+
   addBase({
     ":root": newVars,
   });
