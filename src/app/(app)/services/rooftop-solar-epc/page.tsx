@@ -13,7 +13,7 @@ function RooftopSolarEPC() {
                     backgroundSize: 'cover',
                 }}>
                 <div className="container">
-                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700"></hr>
+                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700" />
                     <h1 className="display-3 text-center text-white mb-3 animated slideInDown">
                         Rooftop Solar Solutions
                     </h1>
@@ -22,7 +22,7 @@ function RooftopSolarEPC() {
                         Production in Industries and Residential Societies.
                     </p>
 
-                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700"></hr>
+                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700" />
                 </div>
             </div>
             <div className="container-xxl lg:mb-80">
@@ -44,7 +44,7 @@ function RooftopSolarEPC() {
                                 </div>
 
                                 <div className="relative rounded-xl lg:rounded-l-none flex items-center bg-gray-100">
-                                    <span className="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"></span>
+                                    <span className="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"/>
 
                                     <div className="p-8 sm:p-16 lg:p-24">
                                         <h6 className="text-textPrimary text-uppercase">

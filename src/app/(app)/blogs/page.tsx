@@ -1,4 +1,4 @@
-import { NavigateBefore, NavigateNext } from '@mui/icons-material'
+import { Create, NavigateBefore, NavigateNext } from '@mui/icons-material'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -50,13 +50,26 @@ const Blogs = () => {
                     backgroundSize: 'cover',
                 }}>
                 <div className="container">
-                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700"></hr>
-                    <div className="flex flex-row align-items-center  gap-10">
+                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700" />
+                    <div className="flex flex-row align-items-center justify-between gap-10">
                         <h1 className="display-3 text-white  animated slideInDown">
                             Blogs
                         </h1>
+                        <Link href="/blogs/create" className="no-underline">
+                            <div className="sm:flex sm:items-end sm:justify-end ">
+                                <div className=" flex flex-row rounded-full lg:rounded-xl block bg-[#ffffff] bg-opacity-60 hover:bg-white px-4 lg:px-5 py-3 ">
+                                    <Create
+                                        fontSize="inherit"
+                                        sx={{ color: '#000000' }}
+                                    />
+                                    <div className=" hidden lg:flex text-center text-sm font-bold  text-gray-900">
+                                        Create New blog
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
                     </div>
-                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700"></hr>
+                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700" />
                 </div>
             </div>
             <div className="py-5">
@@ -144,7 +157,7 @@ const Article: React.FC<ArticleProps> = ({
                     dateTime={date}
                     className="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900">
                     <span>{new Date(date).getFullYear()}</span>
-                    <span className="w-px flex-1 bg-gray-900/10"></span>
+                    <span className="w-px flex-1 bg-gray-900/10" />
                     <span>
                         {new Date(date).toLocaleString('default', {
                             month: 'short',

@@ -12,12 +12,12 @@ function Contact() {
                     backgroundSize: 'cover',
                 }}>
                 <div className="container">
-                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700"></hr>
+                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700" />
                     <h1 className="display-3 text-center text-white mb-3 animated slideInDown">
                         Contact
                     </h1>
 
-                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700"></hr>
+                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700" />
                 </div>
             </div>
             <div className="container-xxl py-5">
@@ -58,7 +58,8 @@ function Contact() {
                                 allowFullScreen
                                 aria-hidden="false"
                                 tabIndex={0}
-                                title="Google Map"></iframe>
+                                title="Google Map"
+                            />
                         </div>
                         <div
                             className="col-md-6 animate-fade-in-up"
@@ -117,7 +118,8 @@ function Contact() {
                                                     id="message"
                                                     style={{
                                                         height: '150px',
-                                                    }}></textarea>
+                                                    }}
+                                                />
                                                 <label htmlFor="message">
                                                     Message
                                                 </label>

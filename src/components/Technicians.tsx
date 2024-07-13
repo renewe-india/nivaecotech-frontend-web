@@ -14,7 +14,7 @@ export default function InfiniteMovingCardsTechnicians() {
 `)
                 setTeamMembers(response.data.data)
             } catch (error) {
-                console.error('Error fetching data:', error)
+                // console.error('Error fetching data:', error)
             }
         }
 

@@ -13,7 +13,7 @@ function SolarParkDevelopment() {
                     backgroundSize: 'cover',
                 }}>
                 <div className="container">
-                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700"></hr>
+                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700" />
                     <h1 className="display-3 text-center text-white mb-3 animated slideInDown">
                         Utility Scale Solar Parks Development
                     </h1>
@@ -22,7 +22,7 @@ function SolarParkDevelopment() {
                         elevate energy generation to new height.
                     </p>
 
-                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700"></hr>
+                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700" />
                 </div>
             </div>
             <div className="container-xxl">

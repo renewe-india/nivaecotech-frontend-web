@@ -51,7 +51,7 @@ const Testimonials: React.FC = () => {
             setClients(response.data.data)
             setMeta(response.data.meta)
         } catch (error) {
-            console.error('Error fetching data:', error)
+            // console.error('Error fetching data:', error)
         }
     }
     const handleNextPage = () => {

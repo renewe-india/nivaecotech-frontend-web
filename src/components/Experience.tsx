@@ -1,4 +1,3 @@
-// import { ElectricBolt, Place, ReadMore, SolarPower } from "@mui/icons-material";
 import Link from 'next/link'
 import React from 'react'
 

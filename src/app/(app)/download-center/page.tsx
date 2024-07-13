@@ -37,13 +37,13 @@ const DownloadSection: React.FC = () => {
                     backgroundSize: 'cover',
                 }}>
                 <div className="container">
-                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700"></hr>
+                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700" />
                     <div className="flex flex-row align-items-center  gap-10">
                         <h1 className="display-5 text-white animated slideInDown">
                             Download center
                         </h1>
                     </div>
-                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700"></hr>
+                    <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700" />
                 </div>
             </div>
             <div className="container-xxl py-5">

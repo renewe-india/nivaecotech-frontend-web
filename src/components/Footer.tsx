@@ -92,7 +92,8 @@ const Footer: React.FC<FooterProps> = () => {
                             <li>
                                 <a
                                     href="https://www.facebook.com/nivaecotech"
-                                    target="_blank">
+                                    target="_blank"
+                                    rel="noreferrer">
                                     <Facebook
                                         fontSize="medium"
                                         className="text-black"
@@ -100,7 +101,8 @@ const Footer: React.FC<FooterProps> = () => {
                                 </a>
                                 <a
                                     href="https://www.linkedin.com/company/niva-ecotech-pvt-ltd/people/"
-                                    target="_blank">
+                                    target="_blank"
+                                    rel="noreferrer">
                                     <LinkedIn
                                         fontSize="medium"
                                         className="text-black"
@@ -203,7 +205,7 @@ const Footer: React.FC<FooterProps> = () => {
                         rights reserved.
                     </p>
 
-                    <ul className="mt-4 flex justify-center gap-6 sm:mt-0 sm:justify-start">
+                    <ul className="mt-4 flex p-0 justify-center gap-6 sm:mt-0 sm:justify-start">
                         <li>
                             <a
                                 className="text-gray-700 no-underline transition hover:text-gray-700/75"

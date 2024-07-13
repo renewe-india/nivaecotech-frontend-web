@@ -113,7 +113,7 @@ export function StickyScrollRevealDemo() {
                             <div className="text-5xl mb-2 font-bold pr-5">
                                 {slides[currentIndex].title}
                             </div>
-                            <hr className="w-full h-3 mx-auto bg-white pr-5 border-0 rounded dark:bg-gray-700"></hr>
+                            <hr className="w-full h-3 mx-auto bg-white pr-5 border-0 rounded dark:bg-gray-700" />
                             <p className="text-sm lg:text-lg lg:font-extrabold lg:pr-80 pr-5">
                                 {slides[currentIndex].description}
                             </p>

@@ -21,7 +21,6 @@ function BookACall() {
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         // Add your form submission logic here
-        console.log(formInput)
     }
     return (
         <div className="row justify-content-center">
