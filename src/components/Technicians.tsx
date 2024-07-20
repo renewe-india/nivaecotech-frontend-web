@@ -1,7 +1,8 @@
 'use client'
-import axios from 'axios'
+
 import React, { useEffect, useState } from 'react'
 import { InfiniteMovingCards } from './ui/infinite-moving-cards'
+import axios from '@/lib/axios'
 
 export default function InfiniteMovingCardsTechnicians() {
     const [teamMembers, setTeamMembers] = useState([])
@@ -9,8 +10,7 @@ export default function InfiniteMovingCardsTechnicians() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response =
-                    await axios.get(`https://app.nivaecotech.com/api/core-team
+                const response = await axios.get(`/api/team-members
 `)
                 setTeamMembers(response.data.data)
             } catch (error) {

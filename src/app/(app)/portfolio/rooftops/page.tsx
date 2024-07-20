@@ -1,6 +1,7 @@
 import Card from '@/components/ui/card'
-import axios from 'axios'
+
 import Pagination from '@/components/Pagination'
+import axios from '@/lib/axios'
 
 interface Project {
     name: string
@@ -18,7 +19,10 @@ interface Project {
         phone: string | null
         email: string | null
         description: string | null
-        logo: string
+        logo?: {
+            url?: string
+            srcset?: string
+        }
     }
 }
 
@@ -27,7 +31,7 @@ const fetchProjects = async (
 ): Promise<{ projects: Project[]; totalPages: number }> => {
     try {
         const response = await axios.get(
-            `https://app.nivaecotech.com/api/projects/rooftop?page=${page}`,
+            `api/portfolio/projects/types/rooftop?page=${page}`,
         )
         return {
             projects: response.data.data,

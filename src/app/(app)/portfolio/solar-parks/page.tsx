@@ -1,5 +1,5 @@
 import Card from '@/components/ui/card'
-import axios from 'axios'
+import axios from '@/lib/axios'
 
 interface Project {
     name: string
@@ -17,14 +17,17 @@ interface Project {
         phone: string | null
         email: string | null
         description: string | null
-        logo: string
+        logo?: {
+            url?: string
+            srcset?: string
+        }
     }
 }
 
 const fetchProjects = async (): Promise<Project[]> => {
     try {
         const response = await axios.get(
-            'https://app.nivaecotech.com/api/projects/ground-mounted',
+            'api/portfolio/projects/types/ground-mounted',
         )
         return response.data.data
     } catch (error) {
@@ -34,6 +37,7 @@ const fetchProjects = async (): Promise<Project[]> => {
 
 const SolarParks = async () => {
     const projects = await fetchProjects()
+    console.log(projects)
 
     return (
         <>

@@ -1,5 +1,5 @@
 import Card from '@/components/ui/card'
-import axios from 'axios'
+import axios from '@/lib/axios'
 
 interface Project {
     name: string
@@ -17,14 +17,17 @@ interface Project {
         phone: string | null
         email: string | null
         description: string | null
-        logo: string
+        logo?: {
+            url?: string
+            srcset?: string
+        }
     }
 }
 
 const fetchSolarProjects = async (): Promise<Project[]> => {
     try {
         const response = await axios.get(
-            'https://app.nivaecotech.com/api/projects/ground-mounted',
+            'api/portfolio/projects/types/ground-mounted',
         )
         return response.data.data
     } catch (error) {
@@ -38,7 +41,7 @@ const fetchRooftopsProjects = async (): Promise<{
 }> => {
     try {
         const response = await axios.get(
-            `https://app.nivaecotech.com/api/projects/rooftop?page=${page}`,
+            `api/portfolio/projects/types/rooftop?limit=10`,
         )
         return {
             projects: response.data.data,
@@ -85,9 +88,9 @@ const page = async () => {
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2">
+            <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-2 ">
                 <div className="flex flex-col space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
                         {SolarProjects.map(project => (
                             <Card
                                 key={project.slug}
@@ -102,7 +105,7 @@ const page = async () => {
                     </div>
                 </div>
                 <div className="flex flex-col space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
                         {projects.map(project => (
                             <Card
                                 key={project.slug}

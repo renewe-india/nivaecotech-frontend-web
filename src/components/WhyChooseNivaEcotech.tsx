@@ -52,11 +52,11 @@ const WhyChooseNivaEcotech: React.FC = () => {
                                     className="text-primary "
                                 />
                             </div>
-                            <div className=" ms-3">
-                                <p className="fs-5 fw-medium mb-2 text-[#000000]">
+                            <div className=" mx-3">
+                                <p className="text-xl lg:text-3xl mb-2 text-[#000000]">
                                     Let&apos;s power a brighter future together.
                                 </p>
-                                <h3 className="m-0 text-white">
+                                <h3 className="m-0 text-xl lg:text-3xl text-white">
                                     +91 989 099 3201
                                 </h3>
                             </div>

@@ -1,7 +1,11 @@
 import { Bolt, Place } from '@mui/icons-material'
-import Image from 'next/image'
+import Image from '../Image'
+
 interface CardProps {
-    logo: string
+    logo?: {
+        url?: string
+        srcset?: string
+    }
     imageSrc: string
     slug: string
     client: string
@@ -39,11 +43,11 @@ const Card: React.FC<CardProps> = ({
                 <dl>
                     <div className="flex flex-row items-center justify-between gap-10 px-2">
                         <Image
-                            src={logo}
-                            alt="logo"
+                            className="rounded-xl w-12 h-auto"
+                            data={logo}
+                            alt={client}
                             width={70}
                             height={7}
-                            className="rounded-xl w-12 h-auto"
                         />
                         <dt className="sr-only">Product</dt>
                         <dd className="font-medium">{client}</dd>

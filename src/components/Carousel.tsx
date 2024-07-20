@@ -98,33 +98,33 @@ export function StickyScrollRevealDemo() {
         router.push('/contact')
     }
     return (
-        <div className="top-20 h-[780px] w-full m-auto py-12 px-4 relative group">
+        <div className="relative top-20 h-[780px] w-full m-auto py-12 px-4 group">
             <div
                 style={backgroundStyle}
-                className="w-full h-full rounded-2xl bg-center bg-cover duration-500">
+                className="w-full h-5/6 rounded-2xl bg-center bg-cover duration-500 relative">
                 {/* Overlay content */}
-                <div className="absolute top-1/2 px-2 lg:left-16 lg:right-16 transform -translate-y-1/2 text-white">
-                    {loading ? ( // Conditional rendering based on loading state
+                <div className="absolute top-[40%] lg:top-1/2 lg:px-16 px-4  transform -translate-y-1/2 text-white w-full lg:w-auto">
+                    {loading ? (
                         <div className="text-5xl mb-2 font-bold">
                             Loading...
                         </div>
                     ) : (
                         <>
-                            <div className="text-5xl mb-2 font-bold pr-5">
+                            <div className="text-3xl lg:text-5xl mb-2 font-bold pr-5 lg:px-5">
                                 {slides[currentIndex].title}
                             </div>
-                            <hr className="w-full h-3 mx-auto bg-white pr-5 border-0 rounded dark:bg-gray-700" />
-                            <p className="text-sm lg:text-lg lg:font-extrabold lg:pr-80 pr-5">
+                            <hr className="w-full h-1 lg:h-2 mx-auto bg-white pr-5  border-0 rounded dark:bg-gray-700" />
+                            <p className="text-sm lg:text-lg lg:font-extrabold lg:pr-80 pr-5 lg:px-5">
                                 {slides[currentIndex].description}
                             </p>
-                            <div className="flex gap-4 mt-4">
+                            <div className="flex gap-4 mt-4 lg:px-5">
                                 <button
-                                    className="bg-theme1-light hover:bg-theme1-dark rounded-xl text-white uppercase px-4 py-3 my-2 lg:my-10"
+                                    className="bg-theme1-light hover:bg-theme1-dark rounded-xl text-white uppercase p-3 lg:px-4 lg:py-3 my-2 lg:my-10"
                                     onClick={gotoAbout}>
                                     Read More
                                 </button>
                                 <button
-                                    className="bg-theme2-light hover:bg-theme2-dark rounded-xl text-white uppercase px-4 py-3 my-2 lg:my-10"
+                                    className="bg-theme2-light hover:bg-theme2-dark rounded-xl text-white uppercase p-3 lg:px-4 lg:py-3 my-2 lg:my-10"
                                     onClick={gotoContact}>
                                     Consult
                                 </button>
@@ -134,13 +134,15 @@ export function StickyScrollRevealDemo() {
                 </div>
             </div>
             {/* Left Arrow */}
-            <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-8 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+            <div className="absolute lg:top-[44%] top-[70%] -translate-x-0 translate-y-[-50%] left-8 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer hidden group-hover:block lg:flex">
                 <ArrowBackIos onClick={prevSlide} fontSize="medium" />
             </div>
+
             {/* Right Arrow */}
-            <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-8 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+            <div className="absolute lg:top-[44%] top-[70%] -translate-x-0 translate-y-[-50%] right-8 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer hidden group-hover:block lg:flex">
                 <ArrowForwardIos onClick={nextSlide} fontSize="medium" />
             </div>
+            {/* Pagination Dots */}
             <div className="flex top-4 justify-center py-2">
                 {slides.map((slide, slideIndex) => (
                     <div
