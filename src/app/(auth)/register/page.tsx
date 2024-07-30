@@ -3,10 +3,10 @@
 import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
 import { useEffect, useState } from 'react'
-import { UserPlus } from 'react-feather'
 import InputField from '@/components/InputField'
 import SubmitButton from '@/components/SubmitButton'
 import ErrorDisplay from '@/components/ErrorDisplay'
+import { Add } from '@mui/icons-material'
 
 function RegisterPage() {
     const { register } = useAuth({
@@ -95,7 +95,7 @@ function RegisterPage() {
                         isSubmitting={isSubmitting}
                         submittingText="Registering..."
                         buttonText="Create your account"
-                        icon={UserPlus}
+                        IconComponent={Add}
                     />
                     <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
                         Already have an account?{' '}

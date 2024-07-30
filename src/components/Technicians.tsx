@@ -10,7 +10,7 @@ export default function InfiniteMovingCardsTechnicians() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`/api/team-members
+                const response = await axios.get(`/api/tenant/core-team
 `)
                 setTeamMembers(response.data.data)
             } catch (error) {
@@ -20,6 +20,7 @@ export default function InfiniteMovingCardsTechnicians() {
 
         fetchData()
     }, [])
+
     return (
         <>
             <div className="text-center">

@@ -14,9 +14,7 @@ export const InfiniteMovingCards = ({
     className,
 }: {
     items: {
-        name: string
-        role: string
-        designation: string
+        user: { name: string; role: string; designation: string }
     }[]
     direction?: 'left' | 'right'
     speed?: 'fast' | 'normal' | 'slow'
@@ -95,14 +93,14 @@ export const InfiniteMovingCards = ({
                     start && 'animate-scroll ',
                     pauseOnHover && 'hover:[animation-play-state:paused]',
                 )}>
-                {items.map(item => (
+                {items.map((item, index) => (
                     <li
                         className="w-[250px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:w-[300px]"
                         style={{
                             background:
                                 'linear-gradient(180deg, #193d1c, #73431f',
                         }}
-                        key={item.name}>
+                        key={index}>
                         <blockquote>
                             <div
                                 aria-hidden="true"
@@ -120,7 +118,7 @@ export const InfiniteMovingCards = ({
                                 <div className="flex flex-col justify-between">
                                     <div className="flex flex-row justify-between">
                                         <div className=" text-xl leading-[1.6] text-textSecondary font-bold">
-                                            {item.name}
+                                            {item.user.name}
                                         </div>
                                         <div className="flex gap-2">
                                             <Link
@@ -150,7 +148,7 @@ export const InfiniteMovingCards = ({
                                         </div>
                                     </div>
                                     <div className=" text-l leading-[1.6] text-gray-400 font-normal">
-                                        {item.designation}
+                                        {item.user.designation}
                                     </div>
                                 </div>
                             </div>

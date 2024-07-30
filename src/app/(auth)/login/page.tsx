@@ -2,10 +2,10 @@
 
 import { useAuth } from '@/hooks/auth'
 import { useEffect, useState } from 'react'
-import { LogIn } from 'react-feather'
 import InputField from '@/components/InputField'
 import SubmitButton from '@/components/SubmitButton'
 import ErrorDisplay from '@/components/ErrorDisplay'
+import { Login } from '@mui/icons-material'
 
 function page() {
     const { login } = useAuth({
@@ -77,7 +77,7 @@ function page() {
                         isSubmitting={isSubmitting}
                         submittingText="Logging in..."
                         buttonText="Login to your account"
-                        icon={LogIn}
+                        IconComponent={Login}
                     />
                     {/* <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
                         Not registered?{' '}

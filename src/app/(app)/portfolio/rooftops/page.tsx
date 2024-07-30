@@ -95,7 +95,11 @@ const Rooftop = async ({
                         />
                     ))}
                 </div>
-                <Pagination currentPage={currentPage} totalPages={totalPages} />
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    baseUrl="/portfolio/rooftops"
+                />
             </div>
         </>
     )

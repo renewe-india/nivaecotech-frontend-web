@@ -4,11 +4,16 @@ import { NavigateBefore, NavigateNext } from '@mui/icons-material'
 interface PaginationProps {
     currentPage: number
     totalPages: number
+    baseUrl: string
 }
 
-const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages }) => {
+const Pagination: React.FC<PaginationProps> = ({
+    currentPage,
+    totalPages,
+    baseUrl,
+}) => {
     const handleNavigation = (page: number) => {
-        window.location.assign(`/portfolio/rooftops?page=${page}`)
+        window.location.assign(`${baseUrl}?page=${page}`)
     }
 
     return (

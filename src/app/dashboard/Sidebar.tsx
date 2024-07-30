@@ -7,6 +7,7 @@ import {
     Article,
     Work,
     Mail,
+    Home,
 } from '@mui/icons-material'
 
 interface SidebarProps {
@@ -41,6 +42,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
                     </button>
                 </div>
                 <nav className="mt-4">
+                    <Link href="/dashboard" className="no-underline text-black">
+                        <div className="flex items-center block py-2.5 px-4 rounded transition duration-200 hover:bg-neutral-400">
+                            <Home />
+                            {isDesktopOpen && (
+                                <span className="ml-4">Home</span>
+                            )}
+                        </div>
+                    </Link>
                     <Link
                         href="/dashboard/blog"
                         className="no-underline text-black">
@@ -87,8 +96,18 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
                 </div>
                 <nav className="mt-4">
                     <Link
+                        href="/dashboard"
+                        className="no-underline text-black"
+                        onClick={toggleSidebar}>
+                        <div className="flex items-center block py-2.5 px-4 rounded transition duration-200 hover:bg-neutral-400">
+                            <Home />
+                            <span className="ml-4">Home</span>
+                        </div>
+                    </Link>
+                    <Link
                         href="/dashboard/blog"
-                        className="no-underline text-black">
+                        className="no-underline text-black"
+                        onClick={toggleSidebar}>
                         <div className="flex items-center block py-2.5 px-4 rounded transition duration-200 hover:bg-neutral-400">
                             <Article />
                             <span className="ml-4">Blog</span>
@@ -96,7 +115,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
                     </Link>
                     <Link
                         href="/dashboard/job"
-                        className="no-underline text-black">
+                        className="no-underline text-black"
+                        onClick={toggleSidebar}>
                         <div className="flex items-center block py-2.5 px-4 rounded transition duration-200 hover:bg-neutral-400">
                             <Work />
                             <span className="ml-4">Job</span>
@@ -104,7 +124,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
                     </Link>
                     <Link
                         href="/dashboard/newsletter"
-                        className="no-underline text-black">
+                        className="no-underline text-black"
+                        onClick={toggleSidebar}>
                         <div className="flex items-center block py-2.5 px-4 rounded transition duration-200 hover:bg-neutral-400">
                             <Mail />
                             <span className="ml-4">Newsletter</span>

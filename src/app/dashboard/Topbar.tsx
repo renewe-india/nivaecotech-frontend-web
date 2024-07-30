@@ -7,6 +7,7 @@ import { Menu } from '@mui/icons-material'
 import { Avatar, Menu as MuiMenu, MenuItem } from '@mui/material'
 import Image from 'next/image'
 import Logo from '@/components/Logo'
+import { useAuth } from '@/hooks/auth'
 
 interface User {
     blood_group: string
@@ -35,14 +36,9 @@ interface TopbarProps {
 }
 
 const Topbar: React.FC<TopbarProps> = ({ isOpen, setIsOpen, user }) => {
+    const { logout } = useAuth()
     const router = useRouter()
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
-
-    const handleLogout = () => {
-        // Logic for logout
-        console.log('Logged out')
-        router.push('/login')
-    }
 
     const handleProfileView = () => {
         router.push('/dashboard/profile')
@@ -113,7 +109,7 @@ const Topbar: React.FC<TopbarProps> = ({ isOpen, setIsOpen, user }) => {
                     onClose={handleMenuClose}>
                     <MenuItem>Hey! {user?.name}</MenuItem>
                     <MenuItem onClick={handleProfileView}>Profile</MenuItem>
-                    <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                    <MenuItem onClick={logout}>Logout</MenuItem>
                 </MuiMenu>
             </div>
         </div>

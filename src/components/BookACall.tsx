@@ -34,7 +34,7 @@ function BookACall() {
         }
 
         try {
-            await axios.post('api/form-submit/form-submitted', formData)
+            await axios.post('api/tenant/form-submitted', formData)
             setFormInput({
                 name: '',
                 email: '',
@@ -87,6 +87,7 @@ function BookACall() {
                                         })
                                     }
                                     id="nameInput"
+                                    required
                                 />
                                 <label
                                     htmlFor="nameInput"
@@ -108,6 +109,7 @@ function BookACall() {
                                         })
                                     }
                                     id="emailInput"
+                                    required
                                 />
                                 <label
                                     htmlFor="emailInput"
@@ -129,6 +131,7 @@ function BookACall() {
                                         })
                                     }
                                     id="contactNumberInput"
+                                    required
                                 />
                                 <label
                                     htmlFor="contactNumberInput"
@@ -147,7 +150,8 @@ function BookACall() {
                                             service: e.target.value,
                                         })
                                     }
-                                    id="serviceSelect">
+                                    id="serviceSelect"
+                                    required>
                                     <option value="">Select A Service</option>
                                     <option value="Solar Park Development">
                                         Solar Park Development
@@ -185,6 +189,7 @@ function BookACall() {
                                         })
                                     }
                                     id="specialRequestInput"
+                                    required
                                 />
                                 <label
                                     htmlFor="specialRequestInput"

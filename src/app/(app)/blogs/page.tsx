@@ -1,4 +1,4 @@
-import { Create, NavigateBefore, NavigateNext } from '@mui/icons-material'
+import { NavigateBefore, NavigateNext } from '@mui/icons-material'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -55,19 +55,6 @@ const Blogs = () => {
                         <h1 className="display-3 text-white  animated slideInDown">
                             Blogs
                         </h1>
-                        <Link href="/blogs/create" className="no-underline">
-                            <div className="sm:flex sm:items-end sm:justify-end ">
-                                <div className=" flex flex-row rounded-full lg:rounded-xl block bg-[#ffffff] bg-opacity-60 hover:bg-white px-4 lg:px-5 py-3 ">
-                                    <Create
-                                        fontSize="inherit"
-                                        sx={{ color: '#000000' }}
-                                    />
-                                    <div className=" hidden lg:flex text-center text-sm font-bold  text-gray-900">
-                                        Create New blog
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
                     </div>
                     <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700" />
                 </div>

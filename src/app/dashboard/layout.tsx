@@ -22,9 +22,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({
             <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
             <div className="flex-1 flex flex-col">
                 <Topbar isOpen={isOpen} setIsOpen={setIsOpen} user={user} />
-                <main className="flex-1 overflow-auto p-4 bg-gray-100">
-                    {children}
-                </main>
+                <main className="flex-1  p-4 bg-gray-100">{children}</main>
             </div>
         </div>
     )

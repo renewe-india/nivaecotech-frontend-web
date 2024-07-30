@@ -1,7 +1,9 @@
-import Card from '@/components/ui/card'
+import Pagination from '@/components/Pagination'
 import axios from '@/lib/axios'
+import ProjectCard from './ProjectCard'
 
 interface Project {
+    tenant_id: string
     name: string
     phase: string
     slug: string
@@ -10,38 +12,16 @@ interface Project {
     description: string | null
     address: string
     date_of_commission: string | null
-    client: {
-        name: string
-        slug: string
-        website: string | null
-        phone: string | null
-        email: string | null
-        description: string | null
-        logo?: {
-            url?: string
-            srcset?: string
-        }
-    }
+    created_at: string
+    updated_at: string
 }
 
-const fetchSolarProjects = async (): Promise<Project[]> => {
+const fetchProjects = async (
+    page: number,
+): Promise<{ projects: Project[]; totalPages: number }> => {
     try {
         const response = await axios.get(
-            'api/portfolio/projects/types/ground-mounted',
-        )
-        return response.data.data
-    } catch (error) {
-        return []
-    }
-}
-
-const fetchRooftopsProjects = async (): Promise<{
-    projects: Project[]
-    totalPages: number
-}> => {
-    try {
-        const response = await axios.get(
-            `api/portfolio/projects/types/rooftop?limit=10`,
+            `api/tenant/portfolio/projects?page=${page}`,
         )
         return {
             projects: response.data.data,
@@ -52,14 +32,14 @@ const fetchRooftopsProjects = async (): Promise<{
     }
 }
 
-const page = async () => {
-    const SolarProjects = await fetchSolarProjects()
-    const { projects } = await fetchRooftopsProjects()
+const page = async ({ searchParams }: { searchParams: { page?: string } }) => {
+    const currentPage = parseInt(searchParams.page || '1', 10)
+    const { projects, totalPages } = await fetchProjects(currentPage)
 
     return (
         <>
             <div
-                className="container-fluid  mb-5 py-5"
+                className="container-fluid mb-5 py-5"
                 style={{
                     background:
                         "linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url('/display-flex.jpg') center center no-repeat",
@@ -70,7 +50,7 @@ const page = async () => {
                     <h1 className="display-3 text-center text-white mb-3 animated slideInDown">
                         Solar Projects
                     </h1>
-                    <p className="fs-5 fw-medium text-center text-white ">
+                    <p className="fs-5 fw-medium text-center text-white">
                         Your Partner in Developing High-Performance Projects.
                     </p>
                     <hr className="w-full h-3 mx-auto bg-white border-0 rounded dark:bg-gray-700" />
@@ -88,37 +68,30 @@ const page = async () => {
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-2 ">
-                <div className="flex flex-col space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
-                        {SolarProjects.map(project => (
-                            <Card
-                                key={project.slug}
-                                logo={project.client.logo}
-                                slug={project.slug}
-                                imageSrc="/card/solarpark.jpg"
-                                client={project.client.name}
-                                location={project.address}
-                                capacity={project.capacity}
-                            />
-                        ))}
-                    </div>
+            <div className="lg:mx-20 lg:px-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10">
+                    {projects.map(project => (
+                        <ProjectCard
+                            key={project.slug}
+                            slug={project.slug}
+                            imageSrc="/card/solarroof.jpg"
+                            name={project.name}
+                            phase={project.phase}
+                            type={project.type}
+                            capacity={project.capacity}
+                            description={project.description}
+                            address={project.address}
+                            dateOfCommission={project.date_of_commission}
+                            client={project.name}
+                            location={project.address}
+                        />
+                    ))}
                 </div>
-                <div className="flex flex-col space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
-                        {projects.map(project => (
-                            <Card
-                                key={project.slug}
-                                logo={project.client.logo}
-                                slug={project.slug}
-                                imageSrc="/card/solarroof.jpg"
-                                client={project.client.name}
-                                location={project.address}
-                                capacity={project.capacity}
-                            />
-                        ))}
-                    </div>
-                </div>
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    baseUrl="/projects"
+                />
             </div>
         </>
     )

@@ -23,3 +23,10 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+.gradient-border {
+  border-image-slice: 1;
+  border-width: 5px;
+  border-image-source: linear-gradient(to right, rgba(97, 192, 106, 0.6), rgba(238, 117, 50, 0.6));
+}
+

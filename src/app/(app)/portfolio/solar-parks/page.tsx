@@ -37,7 +37,6 @@ const fetchProjects = async (): Promise<Project[]> => {
 
 const SolarParks = async () => {
     const projects = await fetchProjects()
-    console.log(projects)
 
     return (
         <>

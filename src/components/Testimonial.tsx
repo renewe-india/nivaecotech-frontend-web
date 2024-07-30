@@ -56,7 +56,7 @@ const Testimonials: React.FC = () => {
     const fetchData = async (page: number) => {
         try {
             const response = await axios.get(
-                `api/portfolio/clients?page=${page}&limit=6`,
+                `api/tenant/portfolio/clients?page=${page}&limit=6`,
             )
             const chunkSize = 6
             const clientChunks = []

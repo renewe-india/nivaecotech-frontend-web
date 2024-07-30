@@ -8,6 +8,7 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    
   ],
   darkMode: 'class',
   theme: {
@@ -40,7 +41,8 @@ const config: Config = {
       },
     },
   },
-  plugins: [addVariablesForColors],
+  plugins: [addVariablesForColors,    
+],
 }
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).

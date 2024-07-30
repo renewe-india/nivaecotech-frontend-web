@@ -7,7 +7,7 @@ import InputField from '@/components/InputField'
 import SubmitButton from '@/components/SubmitButton'
 import ErrorDisplay from '@/components/ErrorDisplay'
 import AuthSessionStatus from '@/app/(auth)/AuthSessionStatus'
-import { Lock } from 'react-feather'
+import { LockReset } from '@mui/icons-material'
 
 function ForgotPasswordPage() {
     const { forgotPassword } = useAuth({
@@ -63,7 +63,7 @@ function ForgotPasswordPage() {
                         isSubmitting={isSubmitting}
                         submittingText="Sending..."
                         buttonText="Reset Password"
-                        icon={Lock}
+                        IconComponent={LockReset}
                     />
                     <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
                         Remembered your password?{' '}
