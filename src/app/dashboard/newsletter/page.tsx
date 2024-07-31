@@ -1,12 +1,22 @@
+import Image from 'next/image'
 import React from 'react'
 
-const NewsletterList: React.FC = () => {
+const page: React.FC = () => {
     return (
-        <>
-            <h2 className="text-2xl font-bold">Newsletter List</h2>
-            {/* Newsletter listing code */}
-        </>
+        <div className="flex flex-col items-center justify-center h-full">
+            <span className="text-black font-semibold">
+                We are working on this part!
+            </span>
+            <Image
+                src="/undraw_under_construction_-46-pa.svg"
+                alt="under_construction"
+                width={900}
+                height={300}
+                priority
+                unoptimized
+            />
+        </div>
     )
 }
 
-export default NewsletterList
+export default page

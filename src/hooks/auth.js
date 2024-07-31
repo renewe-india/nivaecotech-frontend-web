@@ -47,8 +47,8 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
 
         try {
             const response = await axios.post('/api/tenant/login', props)
-            console.log(response.data.data)
-            sessionStorage.setItem('token', response.data.data.token) // Save the token
+
+            sessionStorage.setItem('token', response.data.data.token)
             await mutate()
         } catch (error) {
             if (error.response?.status === 422) {

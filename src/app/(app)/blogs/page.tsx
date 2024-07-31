@@ -1,8 +1,35 @@
-import { NavigateBefore, NavigateNext } from '@mui/icons-material'
+'use client'
+import axios from '@/lib/axios'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import BlogCard from './BlogCard'
+import Loading from '@/components/Loading'
+import LoadingError from '@/app/dashboard/blog/LoadingError'
+import Pagination from '@/components/Pagination'
+import { useSearchParams } from 'next/navigation'
 
+interface Blog {
+    id: number
+    slug: string
+    title: string
+    published_at: string
+    is_author: boolean
+    content: string
+    permissions: {
+        view: boolean
+        update: boolean
+        delete: boolean
+    }
+    author: {
+        name: string
+        username: string
+        email: string
+        role: string
+        designation: string
+        department: string
+    }
+}
 interface ArticleProps {
     date: string
     title: string
@@ -11,6 +38,30 @@ interface ArticleProps {
     readMoreUrl: string
 }
 const Blogs = () => {
+    const searchParams = useSearchParams()
+    const [blogs, setBlogs] = useState<Blog[]>([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
+
+    const currentPage = parseInt(searchParams.get('page') || '1', 10)
+    const [totalPages, setTotalPages] = useState<number>(1)
+    useEffect(() => {
+        const fetchBlogs = async (page: number) => {
+            try {
+                const response = await axios.get(
+                    `api/tenant/blog/articles?page=${page}`,
+                )
+
+                setBlogs(response.data.data)
+                setTotalPages(response.data.meta.last_page)
+            } catch (error) {
+                setError('Error fetching blogs')
+            } finally {
+                setLoading(false)
+            }
+        }
+        fetchBlogs(currentPage)
+    }, [currentPage])
     const articles = [
         {
             date: '2024-06-03',
@@ -62,7 +113,7 @@ const Blogs = () => {
             <div className="py-5">
                 <div className="">
                     <section>
-                        <div className="mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+                        <div className="mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8  space-y-4">
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                                 {articles.map((article, index) => (
                                     <Article
@@ -75,54 +126,34 @@ const Blogs = () => {
                                     />
                                 ))}
                             </div>
+
+                            {loading ? (
+                                <Loading />
+                            ) : (
+                                <LoadingError
+                                    loading={loading}
+                                    error={error}
+                                    data={blogs}>
+                                    <div
+                                        className={`grid grid-cols-1 lg:grid-cols-2 gap-4 ${
+                                            loading ? 'hidden' : ''
+                                        }`}>
+                                        {blogs.map(blog => (
+                                            <BlogCard
+                                                key={blog.id}
+                                                blog={blog}
+                                                //imageUrl={blog.imageUrl}
+                                            />
+                                        ))}
+                                    </div>
+                                </LoadingError>
+                            )}
                         </div>
-                        <ol className="flex justify-center gap-1 text-xs font-medium">
-                            <li>
-                                <a
-                                    href="#"
-                                    className="inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900">
-                                    <span className="sr-only">Prev Page</span>
-                                    <NavigateBefore fontSize="small" />
-                                </a>
-                            </li>
-
-                            <li>
-                                <a
-                                    href="#"
-                                    className="no-underline block size-8 rounded no-underline border-blue-600 bg-theme1-light text-center leading-8 text-white">
-                                    1
-                                </a>
-                            </li>
-
-                            <li className="block size-8 rounded  border border-gray-100 bg-white text-center leading-8 text-gray-900">
-                                2
-                            </li>
-
-                            <li>
-                                <a
-                                    href="#"
-                                    className="block size-8 rounded no-underline border border-gray-100 bg-white text-center leading-8 text-gray-900">
-                                    3
-                                </a>
-                            </li>
-
-                            <li>
-                                <a
-                                    href="#"
-                                    className="block size-8 rounded no-underline border border-gray-100 bg-white text-center leading-8 text-gray-900">
-                                    4
-                                </a>
-                            </li>
-
-                            <li>
-                                <a
-                                    href="#"
-                                    className="inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900">
-                                    <span className="sr-only">Next Page</span>
-                                    <NavigateNext fontSize="small" />
-                                </a>
-                            </li>
-                        </ol>
+                        <Pagination
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            baseUrl="/blogs"
+                        />
                     </section>
                 </div>
             </div>

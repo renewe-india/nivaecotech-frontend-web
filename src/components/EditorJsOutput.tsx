@@ -22,12 +22,12 @@ const classes = {
     list: {
         ol: {
             container:
-                'list-decimal list-inside text-lg text-justify text-gray-900 ml-4',
+                'list-decimal list-inside text-lg text-justify font-bold text-gray-900 ml-4',
             listItem: 'list-item-class',
         },
         ul: {
             container:
-                'list-disc list-inside text-lg text-justify text-gray-900 ml-4',
+                'list-disc list-inside text-lg text-justify font-bold text-gray-900 ml-4',
             listItem: 'list-item-class',
         },
     },
@@ -38,6 +38,7 @@ interface EditorOutputProps {
 }
 
 const EditorOutput: FC<EditorOutputProps> = ({ content }) => {
+    console.log(content)
     return (
         <section>
             {content.blocks.map((block: any, index: number) => {

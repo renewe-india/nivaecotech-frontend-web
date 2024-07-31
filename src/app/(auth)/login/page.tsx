@@ -16,7 +16,7 @@ function page() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState<{ [key: string]: string[] }>({})
 
     const submitForm = async (
         event: React.FormEvent<HTMLFormElement>,
@@ -30,8 +30,9 @@ function page() {
             setErrors,
         })
     }
+
     useEffect(() => {
-        if (errors.length > 0) {
+        if (Object.keys(errors).length > 0) {
             setIsSubmitting(false)
         }
     }, [errors])
