@@ -66,7 +66,7 @@ const Testimonials: React.FC = () => {
             setClients(clientChunks)
             setMeta(response.data.meta)
         } catch (error) {
-            console.error('Error fetching data:', error)
+            // console.error('Error fetching data:', error)
         }
     }
 

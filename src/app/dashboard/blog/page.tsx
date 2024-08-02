@@ -39,7 +39,7 @@ const formatDate = (dateString: string) => {
     })
 }
 
-const columns: TableColumn<Blog>[] = [
+const columns: TableColumn[] = [
     { header: 'Title', accessor: 'title', align: 'left' },
     { header: 'Author', accessor: 'author.name', align: 'left' },
     { header: 'Published Date', accessor: 'published_at', align: 'left' },

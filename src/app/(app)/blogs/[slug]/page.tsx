@@ -84,7 +84,7 @@ const ViewBlog: React.FC<ViewBlogProps> = ({ params }) => {
                                 </div>
                                 <hr className="w-full h-3 mx-auto bg-black border-0 rounded dark:bg-gray-700" />
                             </div>
-                            <div className="text-xl lg:flex items-center gap-2">
+                            <div className="text-base lg:text-xl lg:flex items-center gap-2">
                                 <div className="flex items-center gap-2 px-10  text-gray-900">
                                     <span className="font-semibold">
                                         Author:

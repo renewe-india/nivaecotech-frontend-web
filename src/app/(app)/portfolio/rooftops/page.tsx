@@ -1,5 +1,4 @@
 import Card from '@/components/ui/card'
-
 import Pagination from '@/components/Pagination'
 import axios from '@/lib/axios'
 

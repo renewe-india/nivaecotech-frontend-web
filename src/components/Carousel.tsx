@@ -110,14 +110,14 @@ export function StickyScrollRevealDemo() {
                         </div>
                     ) : (
                         <>
-                            <div className="text-3xl lg:text-5xl mb-2 font-bold pr-5 lg:px-5">
+                            <div className="text-4xl lg:text-5xl mb-2 font-bold pr-5 lg:px-5">
                                 {slides[currentIndex].title}
                             </div>
                             <hr className="w-full h-1 lg:h-2 mx-auto bg-white pr-5  border-0 rounded dark:bg-gray-700" />
                             <p className="text-sm lg:text-lg lg:font-extrabold lg:pr-80 pr-5 lg:px-5">
                                 {slides[currentIndex].description}
                             </p>
-                            <div className="flex gap-4 mt-4 lg:px-5">
+                            <div className="flex gap-4 mt-4 text-sm lg:px-5">
                                 <button
                                     className="bg-theme1-light hover:bg-theme1-dark rounded-xl text-white uppercase p-3 lg:px-4 lg:py-3 my-2 lg:my-10"
                                     onClick={gotoAbout}>

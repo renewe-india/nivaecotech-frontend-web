@@ -38,7 +38,6 @@ interface EditorOutputProps {
 }
 
 const EditorOutput: FC<EditorOutputProps> = ({ content }) => {
-    console.log(content)
     return (
         <section>
             {content.blocks.map((block: any, index: number) => {

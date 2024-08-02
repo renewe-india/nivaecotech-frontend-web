@@ -23,6 +23,7 @@ const fetchProjects = async (
         const response = await axios.get(
             `api/tenant/portfolio/projects?page=${page}`,
         )
+
         return {
             projects: response.data.data,
             totalPages: response.data.meta.last_page,

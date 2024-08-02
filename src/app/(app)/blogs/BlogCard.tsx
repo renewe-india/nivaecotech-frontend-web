@@ -74,7 +74,7 @@ const BlogCard: React.FC<BlogProps> = ({ blog, imageUrl }) => {
 
         return longSentences.join('. ')
     }
-    console.log(blog)
+
     return (
         <article className="flex rounded-3xl bg-white shadow-md transition hover:shadow-xl">
             <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">

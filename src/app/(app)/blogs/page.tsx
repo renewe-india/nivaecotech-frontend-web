@@ -37,6 +37,7 @@ interface ArticleProps {
     imageUrl: string
     readMoreUrl: string
 }
+
 const Blogs = () => {
     const searchParams = useSearchParams()
     const [blogs, setBlogs] = useState<Blog[]>([])
@@ -45,6 +46,7 @@ const Blogs = () => {
 
     const currentPage = parseInt(searchParams.get('page') || '1', 10)
     const [totalPages, setTotalPages] = useState<number>(1)
+
     useEffect(() => {
         const fetchBlogs = async (page: number) => {
             try {
@@ -62,6 +64,7 @@ const Blogs = () => {
         }
         fetchBlogs(currentPage)
     }, [currentPage])
+
     const articles = [
         {
             date: '2024-06-03',

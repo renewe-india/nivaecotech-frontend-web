@@ -47,7 +47,7 @@ module.exports = {
         'react/require-default-props': 0,
         'react/react-in-jsx-scope': 0,
         'linebreak-style': ['error', 'unix'],
-        // 'linebreak-style': 0,
+        //  'linebreak-style': 0,
         semi: ['error', 'never'],
         '@typescript-eslint/no-unused-vars': ['error'],
         '@typescript-eslint/no-explicit-any': 'off',

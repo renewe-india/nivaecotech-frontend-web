@@ -5,7 +5,7 @@ import { useAuth } from '@/hooks/auth'
 import { useEffect, useState } from 'react'
 import InputField from '@/components/InputField'
 import SubmitButton from '@/components/SubmitButton'
-import ErrorDisplay from '@/components/ErrorDisplay'
+
 import { Add } from '@mui/icons-material'
 
 function RegisterPage() {
@@ -90,7 +90,7 @@ function RegisterPage() {
                         required
                         autoComplete="new-password"
                     />
-                    <ErrorDisplay errors={errors} />
+
                     <SubmitButton
                         isSubmitting={isSubmitting}
                         submittingText="Registering..."

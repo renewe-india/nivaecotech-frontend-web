@@ -5,7 +5,6 @@ import { useAuth } from '@/hooks/auth'
 import { useEffect, useState } from 'react'
 import InputField from '@/components/InputField'
 import SubmitButton from '@/components/SubmitButton'
-import ErrorDisplay from '@/components/ErrorDisplay'
 import AuthSessionStatus from '@/app/(auth)/AuthSessionStatus'
 import { LockReset } from '@mui/icons-material'
 
@@ -58,7 +57,7 @@ function ForgotPasswordPage() {
                         required
                         autoFocus
                     />
-                    <ErrorDisplay errors={errors} />
+
                     <SubmitButton
                         isSubmitting={isSubmitting}
                         submittingText="Sending..."

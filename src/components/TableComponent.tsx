@@ -2,14 +2,14 @@ import { Delete, DriveFileRenameOutline } from '@mui/icons-material'
 import React from 'react'
 import Link from 'next/link'
 
-export interface TableColumn<T> {
+export interface TableColumn {
     header: string
     accessor: string
     align: 'left' | 'right' | 'center'
 }
 
 interface TableProps<T> {
-    columns: TableColumn<T>[]
+    columns: TableColumn[]
     data: T[]
     onDelete: (slug: string) => void
     onEdit: (slug: string) => void
